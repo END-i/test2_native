@@ -1,5 +1,5 @@
 import { Navigation } from "react-native-navigation";
-import { registerComponent } from "./src/registerComponent";
+import { registerComponent } from './src/registerComponent'
 
 registerComponent();
 
@@ -7,7 +7,7 @@ Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       stack: {
-        id: "AppStack",
+        id: "root",
         children: [
           {
             component: {

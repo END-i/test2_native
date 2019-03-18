@@ -4,11 +4,8 @@ import { Provider } from "react-redux";
 import ProductsScreen from "./screens/ProductsScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import CartScreen from "./screens/CartScreen";
+import store from './store/index'
 
-import { createStore } from "redux";
-import rootReducer from "./reducers";
-
-const store = createStore(rootReducer);
 
 export function registerComponent() {
   Navigation.registerComponentWithRedux(
