@@ -1,10 +1,8 @@
-const PRODUCTS_LIST = "PRODUCTS_LIST";
-
 export function products(state = null, action) {
-    switch (action.type) {
-        case PRODUCTS_LIST:
-            return action.getProductsList;
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case 'GET_PRODUCTS_LIST':
+      return action.payload
+    default:
+      return state
+  }
 }

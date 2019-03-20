@@ -1,23 +1,19 @@
-export function getProductsList(data) {
-  return {
-    type: "PRODUCTS_LIST",
-    data
-  };
-}
+const getProductsList = data => ({
+  type: 'GET_PRODUCTS_LIST',
+  payload: data,
+})
 
-export function getData() {
+export const fetchGetProductsList = () => {
   return dispatch => {
-    fetch("https://api.myjson.com/bins/v3ct2")
+    fetch('https://api.myjson.com/bins/v3ct2')
       .then(data => {
-        return data.json();
+        return data.json()
       })
       .then(response => {
-        console.log(response);
-        // dispatch(products(response));
+        dispatch(getProductsList(response))
       })
       .catch(error => {
-        console.log(error);
-        // dispatch(productsError(response));
-      });
-  };
+        console.log(error)
+      })
+  }
 }
