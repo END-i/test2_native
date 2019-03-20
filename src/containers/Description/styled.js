@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const Wrapper = styled.ScrollView`
-  background: #0e3d88;
+  background-color: #0e3d88d1;
 `
 export const Divider = styled.View`
   border-bottom-width: 3;
@@ -19,7 +19,7 @@ export const MyImage = styled.ImageBackground`
 `
 export const Sale = styled.View`
   display: ${({sale})=> sale ? 'flex' : 'none'};
-  background: #d02222;
+  background-color: #d02222;
   position: absolute;
   right: 0;
   bottom: 20;
@@ -59,7 +59,7 @@ export const CartButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   margin: auto;
-  background: #008000;
+  background-color: #008000;
   font-size: 19;
   margin-bottom: 10;
   padding-bottom: 5;

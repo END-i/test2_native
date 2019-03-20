@@ -23,7 +23,6 @@ import {
 class Description extends Component {
   render() {
     const item = this.props.item
-
     return (
       <Wrapper>
         <MyImage

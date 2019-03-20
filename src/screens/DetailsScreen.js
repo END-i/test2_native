@@ -18,17 +18,16 @@ class DetailsScreen extends Component {
   goToScreen = screen => {
     Navigation.push(this.props.componentId, {
       component: {
-        name: screen
-      }
+        name: screen,
+      },
     })
   }
 
   render() {
-    return <Description item={this.props.item}/>
+    return <Description item={this.props.item} />
   }
 }
 export default DetailsScreen
-
 
 const styles = StyleSheet.create({
   container: {

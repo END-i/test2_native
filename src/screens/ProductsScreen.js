@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
-import AllProducts from '../containers/AllProducts/index'
+import React, { Component, Fragment } from 'react'
 import { Navigation } from 'react-native-navigation'
+
+import AllProducts from '../containers/AllProducts/index'
+import Header from '../containers/Header/index'
 
 class ProductsScreen extends Component {
   static get options() {
@@ -25,7 +27,12 @@ class ProductsScreen extends Component {
   }
 
   render() {
-    return <AllProducts goToScreen={this.goToScreen} />
+    return (
+      <Fragment>
+        {/* <Header /> */}
+        <AllProducts goToScreen={this.goToScreen} />
+      </Fragment>
+    )
   }
 }
 
