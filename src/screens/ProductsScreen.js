@@ -5,13 +5,33 @@ import AllProducts from '../containers/AllProducts/index'
 import Header from '../containers/Header/index'
 
 class ProductsScreen extends Component {
+  constructor(props) {
+    super(props)
+    Navigation.events().bindComponent(this)
+  }
   static get options() {
     return {
       topBar: {
         title: {
           text: 'Products',
         },
+        rightButtons: {
+          id: 'burgerButton',
+          icon: require('./menu-button.png'),
+        },
       },
+    }
+  }
+
+  navigationButtonPressed({ buttonId }) {
+    if (buttonId === 'burgerButton') {
+      Navigation.mergeOptions('Products', {
+        sideMenu: {
+          left: {
+            visible: true,
+          }
+        },
+      })
     }
   }
 

@@ -1,20 +1,31 @@
-import { Navigation } from "react-native-navigation";
+import { Navigation } from 'react-native-navigation'
 import { registerComponent } from './src/registerComponent.js'
 
-registerComponent();
+registerComponent()
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: "Products"
-            }
-          }
-        ]
-      }
-    }
-  });
-});
+      sideMenu: {
+        id: 'sideMenu',
+        left: {
+          component: {
+            id: 'SideMenu',
+            name: 'SideMenu',
+          },
+        },
+        center: {
+          stack: {
+            id: "AppRoot",
+            children: [{
+                component: {
+                  id: 'Products',
+                  name: 'Products',
+                },
+              }],
+          },
+        },
+      },
+    },
+  })
+})
