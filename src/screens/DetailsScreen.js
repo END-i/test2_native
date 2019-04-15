@@ -2,15 +2,30 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 
+import TopBar from './TopBar'
+
 import Description from '../containers/Description/index'
 
 class DetailsScreen extends Component {
   static get options() {
     return {
       topBar: {
-        title: {
-          text: 'Details',
+        background: {
+          color: '#2196f3ba',
         },
+        title: {
+          text: 'Product',
+          color: '#fff'
+        },
+        rightButtons: [
+          {
+          id: 'burgerButton',
+          icon: require('./media/menu-button.png'),
+          color: '#fff',
+        }],
+        backButton: {
+          color: '#fff'
+        }
       },
     }
   }

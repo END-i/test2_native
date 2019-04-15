@@ -47,9 +47,9 @@ export default Item
 import styled from 'styled-components/native'
 
 export const Wrapper = styled.View`
-  margin: 1px;
+  margin: 7px;
   margin-left: 0;
-  background: #0e3d88d1;
+  background: #2196f3;
   border-top-right-radius: 10;
   border-bottom-right-radius: 10;
   padding: 10px;

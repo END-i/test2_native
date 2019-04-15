@@ -1,5 +1,9 @@
 import { Navigation } from 'react-native-navigation'
 import { registerComponent } from './src/registerComponent.js'
+//
+import { YellowBox } from 'react-native'
+YellowBox.ignoreWarnings(['Remote debugger'])
+//
 
 registerComponent()
 
@@ -16,13 +20,23 @@ Navigation.events().registerAppLaunchedListener(() => {
         },
         center: {
           stack: {
-            id: "AppRoot",
-            children: [{
+            id: 'AppRoot',
+            children: [
+              {
+                component: {
+                  id: 'Details',
+                  name: 'Details',
+                },
+                component: {
+                  id: 'Cart',
+                  name: 'Cart',
+                },
                 component: {
                   id: 'Products',
                   name: 'Products',
                 },
-              }],
+              },
+            ],
           },
         },
       },
