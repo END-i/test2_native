@@ -17,7 +17,7 @@ const Item = ({ item, goToScreen }) => {
   return (
     <Wrapper>
       <View style={{ flexDirection: 'row' }}>
-        <MyImage
+        {/* <MyImage
           source={{
             uri: item.image,
           }}
@@ -29,14 +29,14 @@ const Item = ({ item, goToScreen }) => {
           <Price>{item.price}</Price>
           <MyButton onPress={() => goToScreen('Details', item)} color="#47acfd">
             <ButtonText>More</ButtonText>
-          </MyButton>
+          </MyButton> */}
           {/* <MyButton onPress={() => goToScreen('Details', item)} color="#47acfd">
             <ButtonText>More</ButtonText>
           </MyButton>
           <MyButton onPress={() => goToScreen('Cart')} color="#31b10a">
             <ButtonText>Add To Cart</ButtonText>
           </MyButton> */}
-        </View>
+        {/* </View> */}
       </View>
     </Wrapper>
   )

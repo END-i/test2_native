@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import { View, ScrollView, Text, Image } from 'react-native'
+import { View, ScrollView, Text, Image } from "react-native";
 import {
   Wrapper,
   MyImage,
@@ -17,17 +17,17 @@ import {
   Price,
   CartButton,
   CartImage,
-  ButtonText,
-} from './styled'
+  ButtonText
+} from "./styled";
 
 class Description extends Component {
   render() {
-    const item = this.props.item
+    const item = this.props.item;
     return (
       <Wrapper>
         <MyImage
           source={{
-            uri: item.image,
+            uri: item.image
           }}
         >
           <Sale sale={item.sale}>
@@ -47,7 +47,7 @@ class Description extends Component {
 
         <Price>{item.price}</Price>
         <CartButton>
-          <CartImage source={require('./cart.png')} />
+          <CartImage source={require("./assets/cart.png")} />
           <ButtonText>Add To Cart</ButtonText>
         </CartButton>
 
@@ -73,7 +73,7 @@ class Description extends Component {
 
         <ProductId>Product ID: {item.product_id}</ProductId>
       </Wrapper>
-    )
+    );
   }
 }
-export default Description
+export default Description;

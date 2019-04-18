@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import { Text, View, ActivityIndicator, FlatList } from 'react-native'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { Text, View, ActivityIndicator, FlatList } from "react-native";
+import { connect } from "react-redux";
 
-import Item from './Item'
-import { fetchGetProductsList } from '../../store/products/actions'
-import { Loader } from './styled'
+import Item from "./Item";
+import { fetchGetProductsList } from "../../store/products/actions";
+import { Loader } from "./styled";
 
 class AllProducts extends Component {
   componentDidMount() {
-    this.props.fetchGetProductsList()
+    this.props.fetchGetProductsList();
   }
 
   render() {
-    const { products } = this.props
+    const { products } = this.props;
 
     if (!products) {
       return (
         <Loader>
           <ActivityIndicator size="large" color="#0000ff" />
         </Loader>
-      )
+      );
     }
 
     return (
@@ -31,18 +31,18 @@ class AllProducts extends Component {
         keyExtractor={(item, index) => index.toString()}
         windowSize={1.5}
       />
-    )
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  products: state.products,
-})
+  products: state.products
+});
 
 const mapDispatchToProps = dispatch => ({
-  fetchGetProductsList: () => dispatch(fetchGetProductsList()),
-})
+  fetchGetProductsList: () => dispatch(fetchGetProductsList())
+});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AllProducts)
+)(AllProducts);

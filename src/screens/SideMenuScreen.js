@@ -1,28 +1,10 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Navigation } from 'react-native-navigation'
+import React, { Component } from "react";
 
-export default class SideMenuScreen extends Component {
+import SideMenu from "../containers/SideMenu";
+
+class SideMenuScreen extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.cart}>Cart</Text>
-      </View>
-    )
+    return <SideMenu />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 280,
-    backgroundColor: '#F5FCFF',
-  },
-  cart: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-})
+export default SideMenuScreen;
