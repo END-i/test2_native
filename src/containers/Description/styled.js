@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const Wrapper = styled.ScrollView`
-  background-color: #2196f3;
+  background-color: #0e3d88d1;
 `
 export const Divider = styled.View`
   border-bottom-width: 3;

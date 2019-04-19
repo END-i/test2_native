@@ -28,6 +28,23 @@ Navigation.events().registerAppLaunchedListener(() => {
                 }
               }
             ]
+            // options: {
+            //   topBar: {
+            //     background: {
+            //       color: "#0e3d88d1"
+            //     },
+            //     backButton: {
+            //       color: "#fff"
+            //     },
+            //     rightButtons: [
+            //       {
+            //         id: "sideMenuButton",
+            //         icon: require("./src/screens/assets/menu-button.png"),
+            //         color: "#fff"
+            //       }
+            //     ]
+            //   }
+            // }
           }
         }
       }

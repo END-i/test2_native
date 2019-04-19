@@ -20,60 +20,70 @@ import {
   ButtonText
 } from "./styled";
 
-class Description extends Component {
-  render() {
-    const item = this.props.item;
-    return (
-      <Wrapper>
-        <MyImage
-          source={{
-            uri: item.image
-          }}
-        >
-          <Sale sale={item.sale}>
-            <SaleText>{`SALE  99%`}</SaleText>
-          </Sale>
-        </MyImage>
+const Description = props => {
+  const { componentId, item } = props;
 
-        <Caption>
-          <CaptionText fontSize={40}>
-            {item.product_name.toUpperCase()}
-          </CaptionText>
-          <CaptionText fontSize={30}>{item.modal}</CaptionText>
-          <CaptionText fontSize={20}>{item.year}</CaptionText>
-        </Caption>
+  const goToScreen = (screen, item) => {
+    Navigation.push(componentId, {
+      component: {
+        name: screen,
+        passProps: {
+          item: item
+        }
+      }
+    });
+  };
 
-        <Divider />
+  return (
+    <Wrapper>
+      <MyImage
+        source={{
+          uri: item.image
+        }}
+      >
+        <Sale sale={item.sale}>
+          <SaleText>{`SALE  99%`}</SaleText>
+        </Sale>
+      </MyImage>
 
-        <Price>{item.price}</Price>
-        <CartButton>
-          <CartImage source={require("./assets/cart.png")} />
-          <ButtonText>Add To Cart</ButtonText>
-        </CartButton>
+      <Caption>
+        <CaptionText fontSize={40}>
+          {item.product_name.toUpperCase()}
+        </CaptionText>
+        <CaptionText fontSize={30}>{item.modal}</CaptionText>
+        <CaptionText fontSize={20}>{item.year}</CaptionText>
+      </Caption>
 
-        <Divider />
+      <Divider />
 
-        <Info>
-          <InfoCaption>{`Сharacteristic:`.toUpperCase()}</InfoCaption>
-          <InfoTextWrapper>
-            <IfonText>Motor:</IfonText>
-            <IfonText>{item.motor} cm3</IfonText>
-          </InfoTextWrapper>
-          <InfoTextWrapper>
-            <IfonText>Max Speed: </IfonText>
-            <IfonText>{item.max_speed}</IfonText>
-          </InfoTextWrapper>
-          <InfoTextWrapper>
-            <IfonText>Cylinder </IfonText>
-            <IfonText>{item.cylinder}</IfonText>
-          </InfoTextWrapper>
-        </Info>
+      <Price>{item.price}</Price>
+      <CartButton>
+        <CartImage source={require("./assets/cart.png")} />
+        <ButtonText>Add To Cart</ButtonText>
+      </CartButton>
 
-        <Divider />
+      <Divider />
 
-        <ProductId>Product ID: {item.product_id}</ProductId>
-      </Wrapper>
-    );
-  }
-}
+      <Info>
+        <InfoCaption>{`Сharacteristic:`.toUpperCase()}</InfoCaption>
+        <InfoTextWrapper>
+          <IfonText>Motor:</IfonText>
+          <IfonText>{item.motor} cm3</IfonText>
+        </InfoTextWrapper>
+        <InfoTextWrapper>
+          <IfonText>Max Speed: </IfonText>
+          <IfonText>{item.max_speed}</IfonText>
+        </InfoTextWrapper>
+        <InfoTextWrapper>
+          <IfonText>Cylinder </IfonText>
+          <IfonText>{item.cylinder}</IfonText>
+        </InfoTextWrapper>
+      </Info>
+
+      <Divider />
+
+      <ProductId>Product ID: {item.product_id}</ProductId>
+    </Wrapper>
+  );
+};
 export default Description;

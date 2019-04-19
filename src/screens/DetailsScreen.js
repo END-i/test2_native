@@ -1,61 +1,35 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import React, { useEffect } from "react";
 import { Navigation } from "react-native-navigation";
 
-import TopBar from "./TopBar";
+import TopBarNavigation from "../containers/TopBarNavigation";
+import Description from "../containers/Description";
 
-import Description from "../containers/Description/index";
+const DetailsScreen = props => {
+  const { componentId } = props;
 
-class DetailsScreen extends Component {
-  static get options() {
-    return {
-      // topBar: {
-      //   background: {
-      //     color: '#2196f3ba',
-      //   },
-      //   title: {
-      //     text: 'Product',
-      //     color: '#fff'
-      //   },
-      //   // rightButtons: [
-      //   //   {
-      //   //   id: 'burgerButton',
-      //   //   icon: require('./assets/menu-button.png'),
-      //   //   color: '#fff',
-      //   // }],
-      //   backButton: {
-      //     color: '#fff'
-      //   }
-      // },
-    };
-  }
+  useEffect(() => {
+    Navigation.mergeOptions(componentId, TopBarNavigation("Details"));
 
-  goToScreen = screen => {
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: screen
+    const navigationButtonEventListener = Navigation.events().registerNavigationButtonPressedListener(
+      ({ buttonId }) => {
+        openSideBar(buttonId);
       }
-    });
+    );
+  });
+
+  const openSideBar = id => {
+    if (id === "sideMenuButton") {
+      Navigation.mergeOptions(componentId, {
+        sideMenu: {
+          left: {
+            visible: true
+          }
+        }
+      });
+    }
   };
 
-  render() {
-    return <Description item={this.props.item} />;
-  }
-}
-export default DetailsScreen;
+  return <Description {...props} />;
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  button: {
-    width: "50%"
-  }
-});
+export default DetailsScreen;

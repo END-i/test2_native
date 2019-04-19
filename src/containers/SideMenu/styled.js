@@ -2,5 +2,7 @@ import styled from "styled-components/native";
 
 export const Wrapper = styled.View`
   flex: 1;
-  margin: auto;
+  width: 280px;
+  justify-content: center;
+  align-items: center;
 `;

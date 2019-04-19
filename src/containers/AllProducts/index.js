@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Text, View, ActivityIndicator, FlatList } from "react-native";
 import { connect } from "react-redux";
 
@@ -6,34 +6,30 @@ import Item from "./Item";
 import { fetchGetProductsList } from "../../store/products/actions";
 import { Loader } from "./styled";
 
-class AllProducts extends Component {
-  componentDidMount() {
-    this.props.fetchGetProductsList();
-  }
+const AllProducts = props => {
+  const { products, fetchGetProductsList, componentId } = props;
 
-  render() {
-    const { products } = this.props;
+  useEffect(() => {
+    fetchGetProductsList();
+  });
 
-    if (!products) {
-      return (
-        <Loader>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </Loader>
-      );
-    }
-
+  if (!products) {
     return (
-      <FlatList
-        data={products}
-        renderItem={({ item }) => (
-          <Item item={item} goToScreen={this.props.goToScreen} />
-        )}
-        keyExtractor={(item, index) => index.toString()}
-        windowSize={1.5}
-      />
+      <Loader>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </Loader>
     );
   }
-}
+
+  return (
+    <FlatList
+      data={products}
+      renderItem={({ item }) => <Item item={item} componentId={componentId} />}
+      keyExtractor={(item, index) => index.toString()}
+      windowSize={1.5}
+    />
+  );
+};
 
 const mapStateToProps = state => ({
   products: state.products
